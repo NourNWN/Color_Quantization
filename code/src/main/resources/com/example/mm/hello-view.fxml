@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mm.HelloController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="456.0" minWidth="10.0" prefWidth="300.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="456.0" minWidth="10.0" prefWidth="300.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="456.0" minWidth="10.0" prefWidth="300.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="284.0" minHeight="10.0" prefHeight="280.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="279.0" minHeight="10.0" prefHeight="276.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <MenuBar prefHeight="30.0" prefWidth="214.0" GridPane.columnIndex="1">
+        <menus>
+            <Menu mnemonicParsing="false" text="Algorithms">
+               <items>
+                  <MenuItem fx:id="uniformMenuItem" mnemonicParsing="false" text="Uniform" />
+                  <MenuItem fx:id="kMeansMenuItem" mnemonicParsing="false" text="K-means" />
+                  <MenuItem fx:id="quadTreeMenuItem" mnemonicParsing="false" text="QuadTree" />
+               </items>
+            </Menu>
+        </menus>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <padding>
+            <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+         </padding>
+      </MenuBar>
+      <Button fx:id="chooseImage" alignment="CENTER" mnemonicParsing="false" onAction="#handleChooseImage" prefHeight="52.0" prefWidth="185.0" text="Choose Image" textAlignment="CENTER" textFill="#6e1d1d" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets top="2.0" />
+         </GridPane.margin>
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <MenuBar prefHeight="33.0" prefWidth="214.0" GridPane.columnIndex="2">
+        <menus>
+            <Menu mnemonicParsing="false" text="Indexed Image">
+               <items>
+                  <MenuItem fx:id="indexedUniform" mnemonicParsing="false" text="Uniform" />
+                  <MenuItem fx:id="indexedKMeans" mnemonicParsing="false" text="K-Means" />
+                  <MenuItem fx:id="indexedQuadtree" mnemonicParsing="false" text="QuadTree" />
+                  <MenuItem fx:id="colorPaletteMenuItem" mnemonicParsing="false" text="Color Palette" />
+                  <MenuItem fx:id="colorHistogramMenuItem" mnemonicParsing="false" text="Color Histogram" />
+               </items>
+            </Menu>
+        </menus>
+         <padding>
+            <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+         </padding>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MenuBar>
+      <ImageView fx:id="uniformResult" fitHeight="253.0" fitWidth="329.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fx:id="kmeansResult" fitHeight="256.0" fitWidth="328.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fx:id="quadTreeResult" fitHeight="252.0" fitWidth="333.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fx:id="indexedResult" fitHeight="247.0" fitWidth="327.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </GridPane.margin>
+      </ImageView>
+       <BarChart fx:id="histogramChart" prefHeight="271.0" prefWidth="366.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+           <xAxis>
+               <CategoryAxis label="Intensity" side="BOTTOM" />
+           </xAxis>
+           <yAxis>
+               <NumberAxis label="Frequency" side="LEFT" />
+           </yAxis>
+         <GridPane.margin>
+            <Insets bottom="5.0" right="-3.0" />
+         </GridPane.margin>
+       </BarChart>
+       <VBox prefHeight="239.0" prefWidth="220.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+           <HBox alignment="TOP_CENTER" prefHeight="49.0" prefWidth="250.0" spacing="5">
+               <Rectangle fx:id="color1" height="240.0" width="35.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Rectangle>
+               <Rectangle fx:id="color2" height="240.0" width="35.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Rectangle>
+               <Rectangle fx:id="color3" height="240.0" width="35.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Rectangle>
+               <Rectangle fx:id="color4" height="240.0" width="35.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Rectangle>
+               <Rectangle fx:id="color5" height="240.0" width="35.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Rectangle>
+            <Rectangle fx:id="color6" height="240.0" layoutX="10.0" layoutY="10.0" width="35.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="color7" height="240.0" layoutX="58.0" layoutY="10.0" width="35.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="color8" height="240.0" layoutX="106.0" layoutY="10.0" width="35.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Rectangle>
+            <VBox.margin>
+               <Insets bottom="4.0" left="5.0" />
+            </VBox.margin>
+           </HBox>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+       </VBox>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="264.0" prefWidth="367.0" GridPane.rowIndex="1">
+         <children>
+            <Label text="Uniform" textAlignment="CENTER" textFill="#1d5b75" wrapText="true">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="283.0" prefWidth="354.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Label text="K-Means" textAlignment="CENTER" textFill="#1d5b75" wrapText="true">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="BOTTOM_CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <children>
+            <Label text="QuadTree" textAlignment="CENTER" textFill="#1d5b75" wrapText="true">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="BOTTOM_CENTER" GridPane.rowIndex="2">
+         <children>
+            <Label text="Indexed Image" textAlignment="CENTER" textFill="#1d5b75" wrapText="true">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="BOTTOM_CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <children>
+            <Label text="Color Palette" textAlignment="CENTER" textFill="#1d5b75" wrapText="true">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </HBox>
+      <HBox alignment="BOTTOM_CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Label text="Color Histogram" textAlignment="CENTER" textFill="#1d5b75" wrapText="true">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</GridPane>
